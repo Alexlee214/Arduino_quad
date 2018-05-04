@@ -1,18 +1,24 @@
 //modification: add mpu6050, and set roll pitch yaw based on the values read
 
-
+#include "I2Cdev.h"
+#include "MPU6050_6Axis_MotionApps20.h"
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 #include <RF24.h>
 
-RF24 radio(A5, A4); // CE, CSN
+RF24 radio(A1, A0); // CE, CSN
+MPU6050 mpu; //pin A4 and A5
 
 const byte motor1a = 4; 
 const byte motor1b = 5;//pwm
 const byte motor2a = 10; //pwm
-const byte motor2b = 2;
+const byte motor2b = 3;
 const byte motor3a = 8;
 const byte motor3b = 9; //pwm
 const byte motor4a = 6; //pwm
 const byte motor4b = 7; 
+
 
 byte speedMotor1 = 0;  //clockwise
 byte speedMotor2 = 0;  //counter-clockwise
