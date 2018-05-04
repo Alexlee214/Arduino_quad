@@ -127,7 +127,7 @@ short mapAcceleration(int joyReading){
 //param: reading from the joystick reading, is directional, thus, value range from 0 to 550
 //return: a speed value from 1 to 50 (change value to modify speed of motion)
 short mapSpeed(int joyReading){
-  return (byte)map(joyReading, 0, 520, 1, 50);
+  return (byte)map(joyReading, 0, 520, 1, 30);
 }
 //---------------------------------------------------------------------------------------------
 
